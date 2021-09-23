@@ -13,7 +13,7 @@ const LoginForm = (props) => {
     email: '', 
     password: '' 
   });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login, { error }] = useMutation(LOGIN_USER);
 
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -40,13 +40,12 @@ const LoginForm = (props) => {
         variables: { ...userFormData },
       });
 
-      // if (!response.ok) {
-      //   throw new Error('something went wrong!');
-      // }
+      const { token, user } = data.login;
+      if(!token || !user){
+        throw new Error('Oops, something went wrong!')
+      }
 
-      // const { token, user } = await response.json();
-      console.log(data);
-      Auth.login(data.login.token);
+      Auth.login(token);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
