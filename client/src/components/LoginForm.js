@@ -13,7 +13,7 @@ const LoginForm = (props) => {
     email: '', 
     password: '' 
   });
-  const [login, { error }] = useMutation(LOGIN_USER);
+  const [login] = useMutation(LOGIN_USER);
 
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
