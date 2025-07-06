@@ -40,6 +40,7 @@ This was definently an interesting project. It made me realize how easy it is to
 
 
 ## Technologies
+- Next.js
 - React.js
 - JavaScript
 - npm 
